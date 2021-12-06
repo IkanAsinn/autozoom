@@ -53,7 +53,7 @@ def autoZoom():
                     start_minute = int(schedule[i][1].split(':')[1])
                     start_date = schedule[i][0]
                     sleep(1)
-                    if hour >= start_hour and minute >= start_minute - 10 and today == start_date: # 10 minutes before class
+                    if hour == start_hour and minute >= start_minute - 10 and today == start_date: # 10 minutes before class
                         isStarted = True
 
                     if hour >= 24:
