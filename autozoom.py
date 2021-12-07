@@ -4,8 +4,8 @@ from csv import writer, reader
 from json import loads
 from pandas import read_csv
 from getpass import getpass
-from os import system, remove
-from time import strftime, sleep
+from os import system, remove, path
+from time import strftime, sleep, ctime
 from datetime import timedelta
 
 def printLogo():
@@ -180,6 +180,12 @@ if __name__ == '__main__':
     while True:
         system('cls')
         printLogo()
+        try:
+            print('Last fetched:', ctime(path.getctime('schedule.csv')))
+        
+        except FileNotFoundError:
+            print('Schedule never fetched, please fetch first!')
+            
         print('1. Get Schedule')
         print('2. Start Autozoom')
         print('3. Exit')
